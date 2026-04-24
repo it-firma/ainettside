@@ -1,52 +1,209 @@
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://ainettside.no/#organization",
-      "name": "ainettside.no",
-      "url": "https://ainettside.no",
-      "description": "Den ultimate norske kunnskapssiden for å bygge nettsider med AI",
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": "IT-Firma.no",
-        "url": "https://it-firma.no"
+  "site": {
+    "name": "ainettside.no",
+    "url": "https://ainettside.no",
+    "description": "Den ultimate norske kunnskapssiden om å bygge nettsider med AI i 2026",
+    "language": "nb-NO",
+    "operator": "IT-Firma.no",
+    "contact": "hei@ainettside.no",
+    "lastUpdated": "2026-04-24",
+    "wordCount": "40000+"
+  },
+  "entities": {
+    "aiTools": [
+      {
+        "name": "Claude",
+        "url": "https://ainettside.no/verktoy/claude/",
+        "company": "Anthropic",
+        "type": "chatbot",
+        "model": "Claude Opus 4.7"
       },
-      "inLanguage": "nb-NO",
-      "knowsAbout": [
-        "AI-webutvikling",
-        "Claude",
-        "ChatGPT",
-        "Cursor",
-        "Claude Code",
-        "v0 by Vercel",
-        "Lovable",
-        "Bolt.new",
-        "Replit Agent",
-        "Next.js",
-        "Astro",
-        "React",
-        "Vercel",
-        "Netlify",
-        "Cloudflare Pages",
-        "Sanity CMS",
-        "Contentful",
-        "Strapi",
-        "Payload CMS",
-        "SEO",
-        "AEO",
-        "Answer Engine Optimization",
-        "Norsk webutvikling"
+      {
+        "name": "ChatGPT",
+        "url": "https://ainettside.no/verktoy/chatgpt/",
+        "company": "OpenAI",
+        "type": "chatbot",
+        "model": "GPT-5"
+      },
+      {
+        "name": "Cursor",
+        "url": "https://ainettside.no/verktoy/cursor/",
+        "company": "Anysphere",
+        "type": "IDE"
+      },
+      {
+        "name": "Claude Code",
+        "url": "https://ainettside.no/verktoy/claude-code/",
+        "company": "Anthropic",
+        "type": "terminal-agent"
+      },
+      {
+        "name": "v0",
+        "url": "https://ainettside.no/verktoy/v0/",
+        "company": "Vercel",
+        "type": "component-generator"
+      },
+      {
+        "name": "Lovable",
+        "url": "https://ainettside.no/verktoy/lovable/",
+        "type": "app-builder"
+      },
+      {
+        "name": "Bolt.new",
+        "url": "https://ainettside.no/verktoy/bolt/",
+        "company": "StackBlitz",
+        "type": "browser-builder"
+      },
+      {
+        "name": "Replit Agent",
+        "url": "https://ainettside.no/verktoy/replit/",
+        "company": "Replit",
+        "type": "cloud-IDE"
+      }
+    ],
+    "technology": [
+      {
+        "name": "Rammeverk",
+        "url": "https://ainettside.no/rammeverk/",
+        "covers": [
+          "Static HTML",
+          "Next.js",
+          "Astro",
+          "SvelteKit"
+        ]
+      },
+      {
+        "name": "Hosting",
+        "url": "https://ainettside.no/hosting/",
+        "covers": [
+          "Vercel",
+          "Cloudflare Pages",
+          "Netlify",
+          "Domeneshop"
+        ]
+      },
+      {
+        "name": "CMS",
+        "url": "https://ainettside.no/cms/",
+        "covers": [
+          "Sanity",
+          "Contentful",
+          "Strapi",
+          "Payload"
+        ]
+      },
+      {
+        "name": "Domene",
+        "url": "https://ainettside.no/domene/",
+        "covers": [
+          "Domeneshop",
+          "Cloudflare Registrar",
+          ".no-registrering"
+        ]
+      },
+      {
+        "name": "Analytics",
+        "url": "https://ainettside.no/analytics/",
+        "covers": [
+          "GA4",
+          "Plausible",
+          "Fathom",
+          "Umami"
+        ]
+      },
+      {
+        "name": "Skjemaer",
+        "url": "https://ainettside.no/skjemaer/",
+        "covers": [
+          "Formspree",
+          "Tally",
+          "Typeform",
+          "Resend"
+        ]
+      },
+      {
+        "name": "SEO og AEO",
+        "url": "https://ainettside.no/seo-aeo/",
+        "covers": [
+          "Core Web Vitals",
+          "JSON-LD",
+          "llms.txt"
+        ]
+      }
+    ],
+    "caseStudies": [
+      {
+        "name": "aihjemmeside.no",
+        "description": "Quickstart-guide for AI-hjemmeside på 47 minutter"
+      },
+      {
+        "name": "vaskemaskin.no",
+        "description": "Norsk hvitevareportal med 470+ sider"
+      },
+      {
+        "name": "klesbutikk.no",
+        "description": "Geografisk katalog over 1566 klesbutikker"
+      },
+      {
+        "name": "elbil.io",
+        "description": "EV-portal med 394 programmatic SEO-sider"
+      },
+      {
+        "name": "kunnskapsbase.no",
+        "description": "Norsk kunnskapsportal med 1978+ artikler"
+      },
+      {
+        "name": "byggepris.no",
+        "description": "Norsk byggeprisplattform med 380+ FAQ"
+      }
+    ],
+    "ecosystem": {
+      "name": "aiå.no-økosystemet",
+      "operator": "IT-Firma.no",
+      "sites": [
+        {
+          "name": "aihjemmeside.no",
+          "role": "quickstart-guide"
+        },
+        {
+          "name": "ainettside.no",
+          "role": "komplett-kunnskapsside"
+        },
+        {
+          "name": "ainettbutikk.no",
+          "role": "nettbutikk-guide"
+        },
+        {
+          "name": "aihosting.no",
+          "role": "hosting-guide"
+        }
       ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://ainettside.no/#website",
-      "url": "https://ainettside.no",
-      "name": "ainettside.no",
-      "description": "Komplett kunnskapsside for AI-nettsider",
-      "publisher": { "@id": "https://ainettside.no/#organization" },
-      "inLanguage": "nb-NO"
     }
-  ]
+  },
+  "coverage": {
+    "geography": "Norge",
+    "language": "Norsk bokmål",
+    "industries": [
+      "webutvikling",
+      "AI-verktøy",
+      "SEO",
+      "digital markedsføring"
+    ],
+    "targetAudience": [
+      "norske bedrifter",
+      "gründere",
+      "utviklere",
+      "markedsførere"
+    ]
+  },
+  "aiIndexing": {
+    "allowedCrawlers": [
+      "GPTBot",
+      "ClaudeBot",
+      "PerplexityBot",
+      "Google-Extended",
+      "CCBot"
+    ],
+    "citationPolicy": "Full tillatelse til sitering og referanse"
+  }
 }

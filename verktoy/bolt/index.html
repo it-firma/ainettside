@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bolt.new — browserbasert AI-bygger 2026 | ainettside.no</title>
+<meta name="description" content="Bolt.new kjører i nettleseren via WebContainers. Null installering, raskeste prompt-til-demo. 40M dollar ARR beviser at browser-utvikling virker.">
+<link rel="canonical" href="https://ainettside.no/verktoy/bolt/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bolt.new — browserbasert AI-bygger 2026 | ainettside.no">
+<meta property="og:description" content="Bolt.new kjører i nettleseren via WebContainers. Null installering, raskeste prompt-til-demo. 40M dollar ARR beviser at browser-utvikling virker.">
+<meta property="og:url" content="https://ainettside.no/verktoy/bolt/">
+<meta property="og:locale" content="nb_NO">
+<meta name="theme-color" content="#0B1226">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232DE8A8'/%3E%3Ctext x='50' y='68' font-family='Inter,sans-serif' font-size='52' font-weight='800' text-anchor='middle' fill='%230B1226'%3EAI%3C/text%3E%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: -apple-system, 'Inter', sans-serif;
+  background: #0B1226;
+  color: white;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.inner { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+.section-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 12px;
+  background: rgba(45,232,168,0.08);
+  border: 1px solid rgba(45,232,168,0.2);
+  border-radius: 100px;
+  margin-bottom: 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: #2DE8A8;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+.section-pill-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #2DE8A8;
+  box-shadow: 0 0 6px #2DE8A8;
+}
+
+/* Progress stripe */
+.progress-stripe { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.06); z-index: 1000; }
+.progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #2DE8A8 0%, #22D3EE 50%, #8B5CF6 100%); transition: width 0.1s; }
+
+/* Nav */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(11,18,38,0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 16px 40px;
+  display: flex; align-items: center; gap: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.logo { display: flex; align-items: center; gap: 11px; font-weight: 800; font-size: 19px; color: white; text-decoration: none; }
+.logo-circle {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  color: #0B1226; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800;
+}
+.nav-links { display: flex; gap: 22px; align-items: center; font-size: 13.5px; color: rgba(255,255,255,0.7); flex: 1; }
+.nav-links a { color: inherit; text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover, .nav-links a.active { color: #2DE8A8; }
+.nav-cta {
+  margin-left: auto;
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  color: #0B1226;
+  padding: 10px 18px; border-radius: 100px;
+  text-decoration: none; font-size: 13.5px; font-weight: 700;
+  transition: transform 0.15s;
+}
+.nav-cta:hover { transform: translateY(-1px); }
+
+/* Breadcrumb */
+.breadcrumb {
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+.breadcrumb .inner { max-width: 1100px; }
+.breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.breadcrumb a:hover { color: #2DE8A8; }
+.breadcrumb span { margin: 0 10px; color: rgba(255,255,255,0.3); }
+
+/* Article hero */
+.article-hero {
+  padding: 70px 40px 40px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+.article-hero::before {
+  content: '';
+  position: absolute;
+  top: 20%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 200px;
+  background: radial-gradient(ellipse, rgba(45,232,168,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.article-hero .inner { position: relative; z-index: 1; }
+.article-hero h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 18px;
+  color: white;
+}
+.article-hero .lede {
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  max-width: 720px;
+}
+.article-meta {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.1em;
+  flex-wrap: wrap;
+}
+.article-meta span { display: inline-flex; align-items: center; gap: 6px; }
+.article-meta-dot { width: 5px; height: 5px; border-radius: 50%; background: #2DE8A8; box-shadow: 0 0 6px #2DE8A8; }
+
+/* Article body */
+article { padding: 50px 40px 70px; }
+article .inner { max-width: 760px; }
+article h2 {
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 44px 0 14px;
+  color: white;
+  line-height: 1.2;
+}
+article h3 {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 28px 0 10px;
+  color: white;
+}
+article p {
+  color: rgba(255,255,255,0.78);
+  line-height: 1.75;
+  margin-bottom: 15px;
+}
+article p strong { color: white; font-weight: 700; }
+article ul, article ol { margin: 14px 0 20px 24px; color: rgba(255,255,255,0.78); }
+article li { margin-bottom: 7px; line-height: 1.75; }
+article a { color: #2DE8A8; text-decoration: none; font-weight: 500; }
+article a:hover { text-decoration: underline; }
+article hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  margin: 40px 0;
+}
+
+/* Info box */
+.info-box {
+  background: rgba(45,232,168,0.05);
+  border: 1px solid rgba(45,232,168,0.2);
+  border-left: 3px solid #2DE8A8;
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 22px 0;
+}
+.info-box-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #2DE8A8;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.info-box p { margin: 0; color: rgba(255,255,255,0.8); font-size: 14.5px; }
+
+.warn-box {
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-left: 3px solid #EF4444;
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 22px 0;
+}
+.warn-box-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #FCA5A5;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.warn-box p { margin: 0; color: rgba(255,255,255,0.8); font-size: 14.5px; }
+
+/* Code */
+pre.code-block {
+  background: #0A0F1F !important;
+  border: 1px solid rgba(45,232,168,0.15);
+  border-radius: 12px;
+  padding: 20px 24px;
+  overflow-x: auto;
+  margin: 16px 0 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+  position: relative;
+}
+pre.code-block::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 12px; right: 16px;
+  font-size: 10px;
+  color: rgba(45,232,168,0.6);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+pre.code-block .kw { color: #C084FC; }
+pre.code-block .str { color: #2DE8A8; }
+pre.code-block .com { color: rgba(255,255,255,0.4); font-style: italic; }
+pre.code-block .tag { color: #22D3EE; }
+pre.code-block .attr { color: #FCA5A5; }
+code.inline {
+  background: rgba(45,232,168,0.08);
+  border: 1px solid rgba(45,232,168,0.15);
+  border-radius: 5px;
+  padding: 2px 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88em;
+  color: #2DE8A8;
+}
+
+/* Facts table */
+.facts {
+  background: #0F1832;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 28px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 30px;
+  position: relative;
+  overflow: hidden;
+}
+.facts::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #2DE8A8 50%, transparent 100%);
+}
+.fact { display: flex; flex-direction: column; gap: 3px; }
+.fact-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+.fact-value {
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+}
+.fact-value.highlight {
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Next navigation */
+.next-nav {
+  background: #0F1832;
+  padding: 50px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.next-nav .inner {
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.next-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 22px 24px;
+  text-decoration: none;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.next-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(45,232,168,0.4) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.next-card:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(45,232,168,0.2);
+  transform: translateY(-2px);
+}
+.next-card:hover::before { opacity: 1; }
+.next-card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(45,232,168,0.7);
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.next-card-title {
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.next-card.prev { text-align: left; }
+.next-card.next { text-align: right; }
+
+/* Ecosystem row */
+.ecosystem-row {
+  background: #0B1226;
+  padding: 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+.ecosystem-row::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(45,232,168,0.3) 20%, rgba(139,92,246,0.3) 80%, transparent 100%);
+}
+.ecosystem-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; z-index: 1;
+}
+.ecosystem-links { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.ecosystem-links a { color: rgba(255,255,255,0.85); font-size: 17px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+.ecosystem-links a:hover { color: #2DE8A8; }
+.ecosystem-separator { color: rgba(255,255,255,0.2); font-size: 14px; }
+.ecosystem-signature { display: inline-flex; align-items: center; gap: 14px; margin-top: 22px; }
+.ecosystem-signature-line { width: 60px; height: 1px; }
+.ecosystem-signature-line.left { background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 100%); }
+.ecosystem-signature-line.right { background: linear-gradient(270deg, transparent 0%, rgba(255,255,255,0.15) 100%); }
+.ecosystem-signature-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* Footer */
+footer { background: #0B1226; padding: 50px 40px 30px; }
+.footer-main {
+  max-width: 1100px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 40px; margin-bottom: 30px;
+}
+.footer-col { display: flex; flex-direction: column; gap: 8px; }
+.footer-col strong { color: white; font-weight: 700; margin-bottom: 6px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+.footer-col p { color: rgba(255,255,255,0.55); font-size: 13.5px; line-height: 1.6; margin: 0; }
+.footer-col a { color: rgba(255,255,255,0.55); font-size: 13.5px; text-decoration: none; padding: 2px 0; transition: color 0.15s; }
+.footer-col a:hover { color: white; }
+.footer-logo { display: flex; align-items: center; gap: 11px; margin-bottom: 12px; }
+.footer-logo-circle { width: 36px; height: 36px; background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%); color: #0B1226; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; }
+.footer-logo-text { color: white; font-weight: 800; font-size: 19px; }
+.footer-bottom {
+  max-width: 1100px; margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: rgba(255,255,255,0.4);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 960px) {
+  .nav-links a:not(.active) { display: none; }
+  nav { padding: 14px 20px; gap: 20px; }
+  .article-hero, article, .next-nav { padding-left: 20px; padding-right: 20px; }
+  .breadcrumb { padding: 16px 20px; }
+  .facts { grid-template-columns: 1fr; }
+  .next-nav .inner { grid-template-columns: 1fr; }
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 30px; }
+}
+@media (max-width: 560px) {
+  .footer-main { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+/* NAV DROPDOWN */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.nav-dropdown-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: rgba(255,255,255,0.65);
+  font-size: 13.5px;
+  font-weight: 500;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s;
+}
+.nav-dropdown-trigger:hover { color: white; }
+.nav-dropdown:hover .nav-dropdown-trigger { color: white; }
+.nav-dropdown:hover .nav-dropdown-trigger svg { transform: rotate(180deg); }
+.nav-dropdown-trigger svg { transition: transform 0.2s; }
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -16px;
+  margin-top: 10px;
+  background: #0F1832;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 8px;
+  min-width: 280px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  z-index: 60;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown-item {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.12s;
+}
+.nav-dropdown-item:hover {
+  background: #0B1226;
+}
+.nav-dropdown-item strong {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.nav-dropdown-item span {
+  color: rgba(255,255,255,0.55);
+  font-size: 12.5px;
+  font-weight: 400;
+}
+
+.nav-ai-indeks {
+  background: rgba(45,232,168,0.06);
+  border: 1.5px solid #5FE388;
+  color: #2DE8A8 !important;
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  font-family: 'JetBrains Mono', monospace;
+  transition: all 0.15s;
+}
+.nav-ai-indeks:hover {
+  background: rgba(45,232,168,0.12);
+  color: #2DE8A8 !important;
+}
+
+/* FOOTER TAGS */
+.footer-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.footer-tag {
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.7);
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.footer-tag-ai {
+  background: rgba(45,232,168,0.08);
+  color: #2DE8A8;
+}
+.footer-col-ai strong { color: #2DE8A8 !important; }
+.footer-ai-link {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12.5px !important;
+  color: rgba(45,232,168,0.7) !important;
+}
+.footer-ai-link:hover { color: #2DE8A8 !important; }
+
+@media (max-width: 860px) {
+  .nav-dropdown-menu { display: none; }
+}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Bolt.new — null oppsett, live på minutter",
+  "description": "Bolt.new kjører i nettleseren via WebContainers. Null installering, raskeste prompt-til-demo.",
+  "url": "https://ainettside.no/verktoy/bolt/",
+  "datePublished": "2026-04-24",
+  "dateModified": "2026-04-24",
+  "inLanguage": "nb-NO",
+  "author": {
+    "@type": "Organization",
+    "name": "IT-Firma.no",
+    "url": "https://it-firma.no"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ainettside.no",
+    "url": "https://ainettside.no",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ainettside.no/icon.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ainettside.no/verktoy/bolt/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ainettside.no",
+      "item": "https://ainettside.no/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI-verktøy",
+      "item": "https://ainettside.no/#ai-verktoy"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Bolt.new",
+      "item": "https://ainettside.no/verktoy/bolt/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="progress-stripe"><div class="progress-fill" id="progressFill"></div></div>
+
+<nav>
+  <a href="/" class="logo" style="text-decoration: none; color: inherit;">
+    <div class="logo-circle">AI</div>
+    AINETTSIDE
+  </a>
+  <div class="nav-links">
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+        AI-verktøy
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="margin-left: 2px;"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="nav-dropdown-menu">
+        <a href="/verktoy/claude/" class="nav-dropdown-item">
+          <strong>Claude</strong>
+          <span>Anthropics Opus 4.7 og Claude Code</span>
+        </a>
+        <a href="/verktoy/chatgpt/" class="nav-dropdown-item">
+          <strong>ChatGPT</strong>
+          <span>OpenAI GPT-5 og Dall-E 3</span>
+        </a>
+        <a href="/verktoy/cursor/" class="nav-dropdown-item">
+          <strong>Cursor</strong>
+          <span>AI-native VS Code fork</span>
+        </a>
+        <a href="/verktoy/claude-code/" class="nav-dropdown-item">
+          <strong>Claude Code</strong>
+          <span>Terminal-agent fra Anthropic</span>
+        </a>
+        <a href="/verktoy/v0/" class="nav-dropdown-item">
+          <strong>v0 by Vercel</strong>
+          <span>React-spesialisten</span>
+        </a>
+        <a href="/verktoy/lovable/" class="nav-dropdown-item">
+          <strong>Lovable</strong>
+          <span>MVP-bygger med Supabase</span>
+        </a>
+        <a href="/verktoy/bolt/" class="nav-dropdown-item">
+          <strong>Bolt.new</strong>
+          <span>Browserbasert via StackBlitz</span>
+        </a>
+        <a href="/verktoy/replit/" class="nav-dropdown-item">
+          <strong>Replit Agent</strong>
+          <span>Skybasert all-in-one</span>
+        </a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+        Teknologi
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="margin-left: 2px;"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="nav-dropdown-menu">
+        <a href="/rammeverk/" class="nav-dropdown-item">
+          <strong>Rammeverk</strong>
+          <span>HTML, Next.js, Astro</span>
+        </a>
+        <a href="/hosting/" class="nav-dropdown-item">
+          <strong>Hosting</strong>
+          <span>Vercel, Cloudflare, Netlify</span>
+        </a>
+        <a href="/cms/" class="nav-dropdown-item">
+          <strong>CMS</strong>
+          <span>Sanity, Contentful, Strapi</span>
+        </a>
+        <a href="/domene/" class="nav-dropdown-item">
+          <strong>Domene</strong>
+          <span>Norske registrarer og EMD</span>
+        </a>
+        <a href="/analytics/" class="nav-dropdown-item">
+          <strong>Analytics</strong>
+          <span>GA4, Plausible, Fathom</span>
+        </a>
+        <a href="/skjemaer/" class="nav-dropdown-item">
+          <strong>Skjemaer</strong>
+          <span>Formspree, Tally, Resend</span>
+        </a>
+      </div>
+    </div>
+    <a href="/seo-aeo/">SEO &amp; AEO</a>
+    <a href="/#case-studies">Cases</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/#ordliste" class="nav-ai-indeks">Ordliste</a>
+  </div>
+  <a href="/" class="nav-cta">← Tilbake</a>
+</nav>
+
+
+<div class="breadcrumb">
+  <div class="inner"><a href="/">ainettside.no</a><span>/</span><a href="/#ai-verktoy">AI-verktøy</a><span>/</span>Bolt.new</div>
+</div>
+
+<section class="article-hero">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>AI-VERKTØY · DYPDYKK</div>
+    <h1>Bolt.new — null oppsett, live på minutter</h1>
+    <p class="lede">StackBlitz' browser-baserte AI-bygger. Perfekt for prototyper og demoer. Dypdykk i hvordan og når du bør bruke den.</p>
+    <div class="article-meta"><span><span class="article-meta-dot"></span>OPPDATERT 24. APRIL 2026</span><span><span class="article-meta-dot"></span>1400+ ORD</span><span><span class="article-meta-dot"></span>LESETID 6 MIN</span></div>
+  </div>
+</section>
+
+<article>
+  <div class="inner">
+
+    <h2>Hva er Bolt.new?</h2>
+    <p>Bolt.new er en browserbasert AI-app-bygger fra StackBlitz. Den kjører fullstendig i nettleseren din via WebContainers-teknologi - ingen lokal Node.js-installasjon, ingen terminalkommandoer, ingen pakkehåndtering. 40 millioner dollar i årlig omsetning har bevist at browser-basert AI-utvikling er levedyktig.</p>
+    <p>Du går til bolt.new, skriver "build me a SaaS dashboard with user auth", og innen minutter har du en kjørende applikasjon du kan dele en URL av.</p>
+
+    <div class="facts">
+      <div class="fact"><div class="fact-label">SELSKAP</div><div class="fact-value">StackBlitz</div></div>
+      <div class="fact"><div class="fact-label">LANSERT</div><div class="fact-value">Oktober 2024</div></div>
+      <div class="fact"><div class="fact-label">MILJØ</div><div class="fact-value">Kun nettleser</div></div>
+      <div class="fact"><div class="fact-label">RAMMEVERK</div><div class="fact-value">React, Vue, Svelte, Astro</div></div>
+      <div class="fact"><div class="fact-label">GRATIS</div><div class="fact-value">Ja, begrenset</div></div>
+      <div class="fact"><div class="fact-label">PRO-PRIS</div><div class="fact-value highlight">250 kr/mnd</div></div>
+    </div>
+
+    <h2>Hovedstyrke: null oppsett</h2>
+    <p>Dette er Bolts hovedsalgsargument. Alle andre AI-verktøy krever noe installasjon eller konto-oppsett. Bolt fungerer med bare en nettleser. Perfekt for:</p>
+    <ul>
+      <li>Workshops der deltakere skal bygge noe raskt</li>
+      <li>Demoer og presentasjoner</li>
+      <li>Tekniske intervjuer</li>
+      <li>Raske prototyper som skal deles</li>
+    </ul>
+
+    <h2>Priser</h2>
+    <ul>
+      <li><strong>Gratis</strong> — begrenset tokens per dag</li>
+      <li><strong>Pro (250 kr/mnd)</strong> — 10 millioner tokens per måned</li>
+      <li><strong>Teams (500 kr/mnd)</strong> — samarbeid, privat workspace</li>
+    </ul>
+
+    <h2>Styrker og svakheter</h2>
+    <ul>
+      <li><strong>+</strong> Null installering</li>
+      <li><strong>+</strong> Støtter mange rammeverk (ikke bare React)</li>
+      <li><strong>+</strong> Raskeste prompt-til-demo</li>
+      <li><strong>-</strong> Primært for prototyping, ikke produksjon</li>
+      <li><strong>-</strong> Bolt Cloud-backend fortsatt umodent</li>
+      <li><strong>-</strong> Nettleseren blir treg på store prosjekter</li>
+    </ul>
+
+    <div class="warn-box">
+      <div class="warn-box-title">PRODUKSJONSBRUK</div>
+      <p>For produksjonsapplikasjoner med betalende kunder, verifiser Bolt Clouds backend-modenhet før du committer. Per mars 2026 mangler offentlig tilgjengelig security compliance-dokumentasjon.</p>
+    </div>
+
+    <h2>Når velge Bolt.new</h2>
+    <p>Bolt passer best når:</p>
+    <ul>
+      <li>Du vil validere en idé på under 30 minutter</li>
+      <li>Du skal presentere en prototype for stakeholders</li>
+      <li>Workflow er: produktteam bygger prototype, utviklere tar den til produksjon</li>
+      <li>Du vil støtte ikke-React-rammeverk (Vue, Svelte, Astro)</li>
+    </ul>
+    <p>For seriøse produksjonsapplikasjoner: bygg i Bolt for prototype, eksporter til GitHub, fortsett i Cursor/Claude Code.</p>
+
+  </div>
+</article>
+
+<nav class="next-nav">
+  <div class="inner">
+    <a href="/verktoy/lovable/" class="next-card prev">
+      <div class="next-card-label">← FORRIGE</div>
+      <div class="next-card-title">Lovable</div>
+    </a>
+    <a href="/verktoy/replit/" class="next-card next">
+      <div class="next-card-label">NESTE →</div>
+      <div class="next-card-title">Replit Agent</div>
+    </a>
+  </div>
+</nav>
+
+<!-- ØKOSYSTEM-RAD -->
+<div class="ecosystem-row">
+  <div class="ecosystem-inner">
+    <div class="ecosystem-links">
+      <a href="https://aihjemmeside.no">aihjemmeside.no</a>
+      <span class="ecosystem-separator">·</span>
+      <a href="https://ainettside.no">ainettside.no</a>
+      <span class="ecosystem-separator">·</span>
+      <a href="https://ainettbutikk.no">ainettbutikk.no</a>
+    </div>
+    <div class="ecosystem-signature">
+      <span class="ecosystem-signature-line left"></span>
+      <span class="ecosystem-signature-text">aiå.no</span>
+      <span class="ecosystem-signature-line right"></span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <div class="footer-logo-circle">AI</div>
+        <span class="footer-logo-text">AINETTSIDE</span>
+      </div>
+      <p>Den ultimate norske kunnskapssiden for å bygge nettsider med AI i 2026. Bygget av <a href="https://it-firma.no" rel="author">IT-Firma.no</a>, del av aiå.no økosystemet.</p>
+      <div class="footer-tags">
+        <span class="footer-tag">2026</span>
+        <span class="footer-tag">Norsk</span>
+        <span class="footer-tag footer-tag-ai">AEO-optimalisert</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <strong>AI-verktøy</strong>
+      <a href="/verktoy/claude/">Claude</a>
+      <a href="/verktoy/chatgpt/">ChatGPT</a>
+      <a href="/verktoy/cursor/">Cursor</a>
+      <a href="/verktoy/claude-code/">Claude Code</a>
+      <a href="/verktoy/v0/">v0 by Vercel</a>
+      <a href="/verktoy/lovable/">Lovable</a>
+      <a href="/verktoy/bolt/">Bolt.new</a>
+      <a href="/verktoy/replit/">Replit Agent</a>
+    </div>
+    <div class="footer-col">
+      <strong>Teknologi</strong>
+      <a href="/rammeverk/">Rammeverk</a>
+      <a href="/hosting/">Hosting</a>
+      <a href="/cms/">CMS</a>
+      <a href="/domene/">Domene</a>
+      <a href="/analytics/">Analytics</a>
+      <a href="/skjemaer/">Skjemaer</a>
+      <a href="/seo-aeo/">SEO og AEO</a>
+    </div>
+    <div class="footer-col footer-col-ai">
+      <strong>For maskiner</strong>
+      <a href="/entity-index.json" class="footer-ai-link">entity-index.json</a>
+      <a href="/llms.txt" class="footer-ai-link">llms.txt</a>
+      <a href="/sitemap.xml" class="footer-ai-link">sitemap.xml</a>
+      <a href="/robots.txt" class="footer-ai-link">robots.txt</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 IT-Firma.no. Alle rettigheter reservert.</div>
+    <div>Sist oppdatert 24. april 2026</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progressFill').style.width = (scrollTop / scrollHeight * 100) + '%';
+});
+</script>
+
+
+</body>
+</html>

@@ -1,39 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://ainettside.no/</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
   <url>
-    <loc>https://ainettside.no/#ai-verktoy</loc>
+    <loc>https://ainettside.no/verktoy/claude/</loc>
     <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ainettside.no/#claude</loc>
+    <loc>https://ainettside.no/verktoy/chatgpt/</loc>
     <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ainettside.no/verktoy/cursor/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ainettside.no/verktoy/claude-code/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ainettside.no/verktoy/v0/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ainettside.no/#hosting</loc>
+    <loc>https://ainettside.no/verktoy/lovable/</loc>
     <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ainettside.no/#seo</loc>
+    <loc>https://ainettside.no/verktoy/bolt/</loc>
     <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ainettside.no/#case-studies</loc>
+    <loc>https://ainettside.no/verktoy/replit/</loc>
     <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ainettside.no/rammeverk/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ainettside.no/hosting/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ainettside.no/cms/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ainettside.no/#ordliste</loc>
+    <loc>https://ainettside.no/domene/</loc>
     <lastmod>2026-04-24</lastmod>
-    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ainettside.no/analytics/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ainettside.no/skjemaer/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ainettside.no/seo-aeo/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>

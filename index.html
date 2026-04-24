@@ -1090,6 +1090,257 @@ code.inline {
 }
 
 
+
+/* NAV DROPDOWN */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.nav-dropdown-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: rgba(255,255,255,0.65);
+  font-size: 13.5px;
+  font-weight: 500;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s;
+}
+.nav-dropdown-trigger:hover { color: white; }
+.nav-dropdown:hover .nav-dropdown-trigger { color: white; }
+.nav-dropdown:hover .nav-dropdown-trigger svg { transform: rotate(180deg); }
+.nav-dropdown-trigger svg { transition: transform 0.2s; }
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -16px;
+  margin-top: 10px;
+  background: #0F1832;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 8px;
+  min-width: 280px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  z-index: 60;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown-item {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.12s;
+}
+.nav-dropdown-item:hover {
+  background: #0B1226;
+}
+.nav-dropdown-item strong {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.nav-dropdown-item span {
+  color: rgba(255,255,255,0.55);
+  font-size: 12.5px;
+  font-weight: 400;
+}
+
+.nav-ai-indeks {
+  background: rgba(45,232,168,0.06);
+  border: 1.5px solid #5FE388;
+  color: #2DE8A8 !important;
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  font-family: 'JetBrains Mono', monospace;
+  transition: all 0.15s;
+}
+.nav-ai-indeks:hover {
+  background: rgba(45,232,168,0.12);
+  color: #2DE8A8 !important;
+}
+
+/* FOOTER TAGS */
+.footer-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.footer-tag {
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.7);
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.footer-tag-ai {
+  background: rgba(45,232,168,0.08);
+  color: #2DE8A8;
+}
+.footer-col-ai strong { color: #2DE8A8 !important; }
+.footer-ai-link {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12.5px !important;
+  color: rgba(45,232,168,0.7) !important;
+}
+.footer-ai-link:hover { color: #2DE8A8 !important; }
+
+@media (max-width: 860px) {
+  .nav-dropdown-menu { display: none; }
+}
+
+
+/* AIHJEMMESIDE-STYLE NAV DROPDOWN */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.nav-dropdown-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: rgba(255,255,255,0.65);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s;
+}
+.nav-dropdown-trigger:hover { color: white; }
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -16px;
+  margin-top: 10px;
+  background: #0F1832;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 8px;
+  min-width: 280px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  z-index: 60;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-dropdown-item {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.12s;
+}
+.nav-dropdown-item:hover {
+  background: #0B1226;
+}
+.nav-dropdown-item strong {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.nav-dropdown-item span {
+  color: rgba(255,255,255,0.55);
+  font-size: 12.5px;
+}
+.nav-ai-indeks {
+  background: rgba(45,232,168,0.06);
+  border: 1.5px solid #5FE388;
+  color: #2DE8A8 !important;
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  font-family: 'JetBrains Mono', monospace;
+  transition: all 0.15s;
+}
+.nav-ai-indeks:hover {
+  background: linear-gradient(135deg, #22D3EE 0%, #2DE8A8 100%);
+  color: #0B1226 !important;
+  border-color: #2DE8A8;
+}
+
+/* FOOTER TAGS */
+.footer-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.footer-tag {
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.7);
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.footer-tag-ai {
+  background: rgba(45,232,168,0.1);
+  color: #2DE8A8;
+  border: 1px solid rgba(45,232,168,0.3);
+}
+
+/* FOOTER AI LINKS */
+.footer-ai-link {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12.5px !important;
+  color: rgba(45,232,168,0.7) !important;
+  position: relative;
+  padding-left: 14px !important;
+}
+.footer-ai-link::before {
+  content: '↗';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 12px;
+}
+.footer-ai-link:hover {
+  color: #2DE8A8 !important;
+}
+.footer-col-ai strong {
+  color: #2DE8A8;
+}
+
 </style>
 </head>
 <body>
@@ -1099,132 +1350,87 @@ code.inline {
 
 <!-- NAV MED MEGAMENY -->
 <nav>
-  <a href="/" class="logo">
+  <a href="/" class="logo" style="text-decoration: none; color: inherit;">
     <div class="logo-circle">AI</div>
     AINETTSIDE
   </a>
   <div class="nav-links">
-    
-    <div class="nav-mega">
-      <button class="nav-mega-trigger">
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
         AI-verktøy
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="margin-left: 2px;"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <div class="nav-mega-panel">
-        <a href="#claude" class="nav-mega-item">
-          <div class="nav-mega-icon">C</div>
-          <div class="nav-mega-text">
-            <strong>Claude</strong>
-            <span>Chat-basert AI fra Anthropic</span>
-          </div>
+      <div class="nav-dropdown-menu">
+        <a href="/verktoy/claude/" class="nav-dropdown-item">
+          <strong>Claude</strong>
+          <span>Anthropics Opus 4.7 og Claude Code</span>
         </a>
-        <a href="#chatgpt" class="nav-mega-item">
-          <div class="nav-mega-icon">G</div>
-          <div class="nav-mega-text">
-            <strong>ChatGPT</strong>
-            <span>Prompt engineering og strategi</span>
-          </div>
+        <a href="/verktoy/chatgpt/" class="nav-dropdown-item">
+          <strong>ChatGPT</strong>
+          <span>OpenAI GPT-5 og Dall-E 3</span>
         </a>
-        <a href="#cursor" class="nav-mega-item">
-          <div class="nav-mega-icon">⌘</div>
-          <div class="nav-mega-text">
-            <strong>Cursor</strong>
-            <span>AI-native IDE for utviklere</span>
-          </div>
+        <a href="/verktoy/cursor/" class="nav-dropdown-item">
+          <strong>Cursor</strong>
+          <span>AI-native VS Code fork</span>
         </a>
-        <a href="#claude-code" class="nav-mega-item">
-          <div class="nav-mega-icon">&gt;_</div>
-          <div class="nav-mega-text">
-            <strong>Claude Code</strong>
-            <span>Terminal-basert agent</span>
-          </div>
+        <a href="/verktoy/claude-code/" class="nav-dropdown-item">
+          <strong>Claude Code</strong>
+          <span>Terminal-agent fra Anthropic</span>
         </a>
-        <a href="#v0" class="nav-mega-item">
-          <div class="nav-mega-icon">v0</div>
-          <div class="nav-mega-text">
-            <strong>v0 by Vercel</strong>
-            <span>React og Next.js-komponenter</span>
-          </div>
+        <a href="/verktoy/v0/" class="nav-dropdown-item">
+          <strong>v0 by Vercel</strong>
+          <span>React-spesialisten</span>
         </a>
-        <a href="#lovable" class="nav-mega-item">
-          <div class="nav-mega-icon">L</div>
-          <div class="nav-mega-text">
-            <strong>Lovable</strong>
-            <span>Full-stack MVP-bygger</span>
-          </div>
+        <a href="/verktoy/lovable/" class="nav-dropdown-item">
+          <strong>Lovable</strong>
+          <span>MVP-bygger med Supabase</span>
         </a>
-        <a href="#bolt" class="nav-mega-item">
-          <div class="nav-mega-icon">⚡</div>
-          <div class="nav-mega-text">
-            <strong>Bolt.new</strong>
-            <span>Browserbasert AI-bygger</span>
-          </div>
+        <a href="/verktoy/bolt/" class="nav-dropdown-item">
+          <strong>Bolt.new</strong>
+          <span>Browserbasert via StackBlitz</span>
         </a>
-        <a href="#replit" class="nav-mega-item">
-          <div class="nav-mega-icon">R</div>
-          <div class="nav-mega-text">
-            <strong>Replit Agent</strong>
-            <span>Skybasert AI som koder og deployer</span>
-          </div>
+        <a href="/verktoy/replit/" class="nav-dropdown-item">
+          <strong>Replit Agent</strong>
+          <span>Skybasert all-in-one</span>
         </a>
       </div>
     </div>
-
-    <div class="nav-mega">
-      <button class="nav-mega-trigger">
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
         Teknologi
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="margin-left: 2px;"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <div class="nav-mega-panel">
-        <a href="#rammeverk" class="nav-mega-item">
-          <div class="nav-mega-icon">⚛</div>
-          <div class="nav-mega-text">
-            <strong>Rammeverk</strong>
-            <span>HTML, Next.js, Astro, Svelte</span>
-          </div>
+      <div class="nav-dropdown-menu">
+        <a href="/rammeverk/" class="nav-dropdown-item">
+          <strong>Rammeverk</strong>
+          <span>HTML, Next.js, Astro</span>
         </a>
-        <a href="#hosting" class="nav-mega-item">
-          <div class="nav-mega-icon">☁</div>
-          <div class="nav-mega-text">
-            <strong>Hosting</strong>
-            <span>Vercel, Netlify, Cloudflare</span>
-          </div>
+        <a href="/hosting/" class="nav-dropdown-item">
+          <strong>Hosting</strong>
+          <span>Vercel, Cloudflare, Netlify</span>
         </a>
-        <a href="#cms" class="nav-mega-item">
-          <div class="nav-mega-icon">✎</div>
-          <div class="nav-mega-text">
-            <strong>CMS</strong>
-            <span>Sanity, Contentful, Strapi, Payload</span>
-          </div>
+        <a href="/cms/" class="nav-dropdown-item">
+          <strong>CMS</strong>
+          <span>Sanity, Contentful, Strapi</span>
         </a>
-        <a href="#domene" class="nav-mega-item">
-          <div class="nav-mega-icon">.no</div>
-          <div class="nav-mega-text">
-            <strong>Domene</strong>
-            <span>Norske registrarer sammenlignet</span>
-          </div>
+        <a href="/domene/" class="nav-dropdown-item">
+          <strong>Domene</strong>
+          <span>Norske registrarer og EMD</span>
         </a>
-        <a href="#analytics" class="nav-mega-item">
-          <div class="nav-mega-icon">📊</div>
-          <div class="nav-mega-text">
-            <strong>Analytics</strong>
-            <span>GA4, Plausible, Fathom</span>
-          </div>
+        <a href="/analytics/" class="nav-dropdown-item">
+          <strong>Analytics</strong>
+          <span>GA4, Plausible, Fathom</span>
         </a>
-        <a href="#skjemaer" class="nav-mega-item">
-          <div class="nav-mega-icon">◱</div>
-          <div class="nav-mega-text">
-            <strong>Skjemaer</strong>
-            <span>Formspree, Tally, native</span>
-          </div>
+        <a href="/skjemaer/" class="nav-dropdown-item">
+          <strong>Skjemaer</strong>
+          <span>Formspree, Tally, Resend</span>
         </a>
       </div>
     </div>
-
-    <a href="#seo">SEO &amp; AEO</a>
+    <a href="/seo-aeo/">SEO &amp; AEO</a>
     <a href="#case-studies">Cases</a>
     <a href="#faq">FAQ</a>
-    <a href="#ordliste">Ordliste</a>
+    <a href="#ordliste" class="nav-ai-indeks">Ordliste</a>
   </div>
   <a href="#oversikt" class="nav-cta">Start her →</a>
 </nav>
@@ -1289,21 +1495,21 @@ code.inline {
       <div class="toc-title">INNHOLDSFORTEGNELSE</div>
       <div class="toc-grid">
         <a href="#ai-verktoy" class="toc-item"><span class="toc-num">01</span><span>AI-verktøy sammenlignet</span></a>
-        <a href="#claude" class="toc-item"><span class="toc-num">02</span><span>Claude i detalj</span></a>
-        <a href="#chatgpt" class="toc-item"><span class="toc-num">03</span><span>ChatGPT i detalj</span></a>
-        <a href="#cursor" class="toc-item"><span class="toc-num">04</span><span>Cursor i detalj</span></a>
-        <a href="#claude-code" class="toc-item"><span class="toc-num">05</span><span>Claude Code i detalj</span></a>
-        <a href="#v0" class="toc-item"><span class="toc-num">06</span><span>v0 by Vercel</span></a>
-        <a href="#lovable" class="toc-item"><span class="toc-num">07</span><span>Lovable</span></a>
-        <a href="#bolt" class="toc-item"><span class="toc-num">08</span><span>Bolt.new</span></a>
-        <a href="#replit" class="toc-item"><span class="toc-num">09</span><span>Replit Agent</span></a>
-        <a href="#rammeverk" class="toc-item"><span class="toc-num">10</span><span>Velg rammeverk</span></a>
-        <a href="#hosting" class="toc-item"><span class="toc-num">11</span><span>Hosting sammenlignet</span></a>
-        <a href="#cms" class="toc-item"><span class="toc-num">12</span><span>CMS eller ikke</span></a>
-        <a href="#domene" class="toc-item"><span class="toc-num">13</span><span>Domene (norsk)</span></a>
-        <a href="#analytics" class="toc-item"><span class="toc-num">14</span><span>Analytics</span></a>
-        <a href="#skjemaer" class="toc-item"><span class="toc-num">15</span><span>Skjemaer</span></a>
-        <a href="#seo" class="toc-item"><span class="toc-num">16</span><span>SEO og AEO</span></a>
+        <a href="/verktoy/claude/" class="toc-item"><span class="toc-num">02</span><span>Claude i detalj</span></a>
+        <a href="/verktoy/chatgpt/" class="toc-item"><span class="toc-num">03</span><span>ChatGPT i detalj</span></a>
+        <a href="/verktoy/cursor/" class="toc-item"><span class="toc-num">04</span><span>Cursor i detalj</span></a>
+        <a href="/verktoy/claude-code/" class="toc-item"><span class="toc-num">05</span><span>Claude Code i detalj</span></a>
+        <a href="/verktoy/v0/" class="toc-item"><span class="toc-num">06</span><span>v0 by Vercel</span></a>
+        <a href="/verktoy/lovable/" class="toc-item"><span class="toc-num">07</span><span>Lovable</span></a>
+        <a href="/verktoy/bolt/" class="toc-item"><span class="toc-num">08</span><span>Bolt.new</span></a>
+        <a href="/verktoy/replit/" class="toc-item"><span class="toc-num">09</span><span>Replit Agent</span></a>
+        <a href="/rammeverk/" class="toc-item"><span class="toc-num">10</span><span>Velg rammeverk</span></a>
+        <a href="/hosting/" class="toc-item"><span class="toc-num">11</span><span>Hosting sammenlignet</span></a>
+        <a href="/cms/" class="toc-item"><span class="toc-num">12</span><span>CMS eller ikke</span></a>
+        <a href="/domene/" class="toc-item"><span class="toc-num">13</span><span>Domene (norsk)</span></a>
+        <a href="/analytics/" class="toc-item"><span class="toc-num">14</span><span>Analytics</span></a>
+        <a href="/skjemaer/" class="toc-item"><span class="toc-num">15</span><span>Skjemaer</span></a>
+        <a href="/seo-aeo/" class="toc-item"><span class="toc-num">16</span><span>SEO og AEO</span></a>
         <a href="#vedlikehold" class="toc-item"><span class="toc-num">17</span><span>Vedlikehold</span></a>
         <a href="#case-studies" class="toc-item"><span class="toc-num">18</span><span>Case studies</span></a>
         <a href="#faq" class="toc-item"><span class="toc-num">19</span><span>FAQ</span></a>
@@ -1345,7 +1551,7 @@ code.inline {
         <p class="tool-card-desc">Chat-basert AI fra Anthropic. Best for å skrive ren, lesbar kode og forklare konsepter. Opus 4.7-modellen er markedets sterkeste kodeassistent.</p>
         <div class="tool-card-meta">
           <span class="tool-card-price">Gratis / <strong>200 kr/mnd Pro</strong></span>
-          <a href="#claude" class="tool-card-link">Les mer →</a>
+          <a href="/verktoy/claude/" class="tool-card-link">Les mer →</a>
         </div>
       </div>
 
@@ -1360,7 +1566,7 @@ code.inline {
         <p class="tool-card-desc">OpenAIs assistent. Best for å strukturere prompter, lage strategi, og bryte ned komplekse problemer. God kodegenerering, men Claude leder i 2026.</p>
         <div class="tool-card-meta">
           <span class="tool-card-price">Gratis / <strong>200 kr/mnd Plus</strong></span>
-          <a href="#chatgpt" class="tool-card-link">Les mer →</a>
+          <a href="/verktoy/chatgpt/" class="tool-card-link">Les mer →</a>
         </div>
       </div>
 
@@ -1375,7 +1581,7 @@ code.inline {
         <p class="tool-card-desc">VS Code-fork med AI bygget inn i arkitekturen. Dominerer utvikler-IDE-markedet med 2 milliarder dollar i årlig omsetning.</p>
         <div class="tool-card-meta">
           <span class="tool-card-price"><strong>200 kr/mnd Pro</strong></span>
-          <a href="#cursor" class="tool-card-link">Les mer →</a>
+          <a href="/verktoy/cursor/" class="tool-card-link">Les mer →</a>
         </div>
       </div>
 
@@ -1390,7 +1596,7 @@ code.inline {
         <p class="tool-card-desc">Terminal-basert agent fra Anthropic. Kjører multi-steg oppgaver autonomt. Kjører i terminal, VS Code, JetBrains og nettleser.</p>
         <div class="tool-card-meta">
           <span class="tool-card-price"><strong>200 kr/mnd Pro</strong></span>
-          <a href="#claude-code" class="tool-card-link">Les mer →</a>
+          <a href="/verktoy/claude-code/" class="tool-card-link">Les mer →</a>
         </div>
       </div>
 
@@ -1405,7 +1611,7 @@ code.inline {
         <p class="tool-card-desc">Genererer React og Next.js-komponenter med shadcn/ui og Tailwind. Integrert med Vercel deploy. Best for frontend-utviklere.</p>
         <div class="tool-card-meta">
           <span class="tool-card-price">Gratis / <strong>200 kr/mnd</strong></span>
-          <a href="#v0" class="tool-card-link">Les mer →</a>
+          <a href="/verktoy/v0/" class="tool-card-link">Les mer →</a>
         </div>
       </div>
 
@@ -1420,7 +1626,7 @@ code.inline {
         <p class="tool-card-desc">Full-stack AI-bygger for MVPer. Generer polerte applikasjoner fra prompter på under en time. Innebygd Supabase for database og auth.</p>
         <div class="tool-card-meta">
           <span class="tool-card-price">Gratis / <strong>250 kr/mnd Pro</strong></span>
-          <a href="#lovable" class="tool-card-link">Les mer →</a>
+          <a href="/verktoy/lovable/" class="tool-card-link">Les mer →</a>
         </div>
       </div>
 
@@ -1435,7 +1641,7 @@ code.inline {
         <p class="tool-card-desc">Kjører i nettleseren via WebContainers. Null lokal installering. Raskeste vei fra prompt til demo. 40 millioner dollar i årlig omsetning.</p>
         <div class="tool-card-meta">
           <span class="tool-card-price">Gratis / <strong>250 kr/mnd</strong></span>
-          <a href="#bolt" class="tool-card-link">Les mer →</a>
+          <a href="/verktoy/bolt/" class="tool-card-link">Les mer →</a>
         </div>
       </div>
 
@@ -1450,7 +1656,7 @@ code.inline {
         <p class="tool-card-desc">Skybasert AI som koder og deployer samtidig. Bra for nybegynnere og raske skripter. All-in-one-plattform.</p>
         <div class="tool-card-meta">
           <span class="tool-card-price">Gratis / <strong>100 kr/mnd</strong></span>
-          <a href="#replit" class="tool-card-link">Les mer →</a>
+          <a href="/verktoy/replit/" class="tool-card-link">Les mer →</a>
         </div>
       </div>
 
@@ -2930,83 +3136,111 @@ Telefon: +47 xxx xx xxx</pre>
   </div>
 </section>
 
-<!-- AIA ØKOSYSTEM RAD -->
+
+<!-- ALLE SIDER -->
+<section id="alle-sider" style="background: #0D1530;">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>KOMPLETT OVERSIKT</div>
+    <h2>Alle sider på ainettside.no</h2>
+    <p class="lede">15 dypdykk-artikler, 40 000+ ord totalt. Hver side er skrevet for å være komplett i seg selv, så du kan starte hvor som helst.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 28px;">
+
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #2DE8A8; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 14px;">AI-VERKTØY</div>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <a href="/verktoy/claude/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">01</span><span>Claude — komplett guide</span></a>
+          <a href="/verktoy/chatgpt/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">02</span><span>ChatGPT — komplett guide</span></a>
+          <a href="/verktoy/cursor/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">03</span><span>Cursor — AI-IDE for profesjonelle</span></a>
+          <a href="/verktoy/claude-code/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">04</span><span>Claude Code — terminal-agent</span></a>
+          <a href="/verktoy/v0/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">05</span><span>v0 by Vercel — React-spesialist</span></a>
+          <a href="/verktoy/lovable/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">06</span><span>Lovable — MVP-bygger</span></a>
+          <a href="/verktoy/bolt/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">07</span><span>Bolt.new — browserbasert</span></a>
+          <a href="/verktoy/replit/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">08</span><span>Replit Agent — skybasert</span></a>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #22D3EE; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 14px;">TEKNOLOGI</div>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <a href="/rammeverk/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">09</span><span>Rammeverk — HTML vs Next.js vs Astro</span></a>
+          <a href="/hosting/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">10</span><span>Hosting — Vercel, Cloudflare, Netlify</span></a>
+          <a href="/cms/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">11</span><span>CMS — Sanity, Contentful, Strapi</span></a>
+          <a href="/domene/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">12</span><span>Domene — registrarer og EMD</span></a>
+          <a href="/analytics/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">13</span><span>Analytics — GA4 vs Plausible</span></a>
+          <a href="/skjemaer/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">14</span><span>Skjemaer — Formspree, Tally, Resend</span></a>
+          <a href="/seo-aeo/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">15</span><span>SEO og AEO — komplett guide</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ØKOSYSTEM-RAD -->
 <div class="ecosystem-row">
   <div class="ecosystem-inner">
     <div class="ecosystem-links">
       <a href="https://aihjemmeside.no">aihjemmeside.no</a>
       <span class="ecosystem-separator">·</span>
-      <a href="https://ainettside.no" style="color: #2DE8A8;">ainettside.no</a>
+      <a href="https://ainettside.no">ainettside.no</a>
       <span class="ecosystem-separator">·</span>
       <a href="https://ainettbutikk.no">ainettbutikk.no</a>
-      <span class="ecosystem-separator">·</span>
-      <a href="https://aihosting.no">aihosting.no</a>
     </div>
     <div class="ecosystem-signature">
-      <div class="ecosystem-signature-line left"></div>
-      <div class="ecosystem-signature-text">aiå.no</div>
-      <div class="ecosystem-signature-line right"></div>
+      <span class="ecosystem-signature-line left"></span>
+      <span class="ecosystem-signature-text">aiå.no</span>
+      <span class="ecosystem-signature-line right"></span>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-main">
     <div class="footer-col">
       <div class="footer-logo">
         <div class="footer-logo-circle">AI</div>
-        <div class="footer-logo-text">AINETTSIDE</div>
+        <span class="footer-logo-text">AINETTSIDE</span>
       </div>
-      <p>Den ultimate norske kunnskapssiden for å bygge nettsider med AI i 2026. Uavhengig, objektiv, ingen affiliate. Del av aiå.no-økosystemet.</p>
+      <p>Den ultimate norske kunnskapssiden for å bygge nettsider med AI i 2026. Bygget av <a href="https://it-firma.no" rel="author">IT-Firma.no</a>, del av aiå.no økosystemet.</p>
       <div class="footer-tags">
         <span class="footer-tag">2026</span>
         <span class="footer-tag">Norsk</span>
         <span class="footer-tag footer-tag-ai">AEO-optimalisert</span>
       </div>
     </div>
-
     <div class="footer-col">
       <strong>AI-verktøy</strong>
-      <a href="#claude">Claude</a>
-      <a href="#chatgpt">ChatGPT</a>
-      <a href="#cursor">Cursor</a>
-      <a href="#claude-code">Claude Code</a>
-      <a href="#v0">v0 by Vercel</a>
-      <a href="#lovable">Lovable</a>
-      <a href="#bolt">Bolt.new</a>
-      <a href="#replit">Replit Agent</a>
+      <a href="/verktoy/claude/">Claude</a>
+      <a href="/verktoy/chatgpt/">ChatGPT</a>
+      <a href="/verktoy/cursor/">Cursor</a>
+      <a href="/verktoy/claude-code/">Claude Code</a>
+      <a href="/verktoy/v0/">v0 by Vercel</a>
+      <a href="/verktoy/lovable/">Lovable</a>
+      <a href="/verktoy/bolt/">Bolt.new</a>
+      <a href="/verktoy/replit/">Replit Agent</a>
     </div>
-
     <div class="footer-col">
       <strong>Teknologi</strong>
-      <a href="#rammeverk">Rammeverk</a>
-      <a href="#hosting">Hosting</a>
-      <a href="#cms">CMS</a>
-      <a href="#domene">Domene</a>
-      <a href="#analytics">Analytics</a>
-      <a href="#skjemaer">Skjemaer</a>
-      <a href="#seo">SEO og AEO</a>
-      <a href="#vedlikehold">Vedlikehold</a>
-      <a href="#case-studies">Case studies</a>
-      <a href="#ordliste">Ordliste</a>
+      <a href="/rammeverk/">Rammeverk</a>
+      <a href="/hosting/">Hosting</a>
+      <a href="/cms/">CMS</a>
+      <a href="/domene/">Domene</a>
+      <a href="/analytics/">Analytics</a>
+      <a href="/skjemaer/">Skjemaer</a>
+      <a href="/seo-aeo/">SEO og AEO</a>
     </div>
-
     <div class="footer-col footer-col-ai">
-      <strong>aiå.no-økosystemet</strong>
-      <a href="https://aihjemmeside.no" class="footer-ai-link">aihjemmeside.no</a>
-      <a href="https://ainettbutikk.no" class="footer-ai-link">ainettbutikk.no</a>
-      <a href="https://aihosting.no" class="footer-ai-link">aihosting.no</a>
-      <br>
-      <strong style="color: white; margin-top: 12px;">Drives av</strong>
-      <a href="https://it-firma.no">IT-Firma.no</a>
-      <a href="mailto:hei@ainettside.no">hei@ainettside.no</a>
+      <strong>For maskiner</strong>
+      <a href="/entity-index.json" class="footer-ai-link">entity-index.json</a>
+      <a href="/llms.txt" class="footer-ai-link">llms.txt</a>
+      <a href="/sitemap.xml" class="footer-ai-link">sitemap.xml</a>
+      <a href="/robots.txt" class="footer-ai-link">robots.txt</a>
     </div>
   </div>
-
   <div class="footer-bottom">
-    <div>© 2026 AINETTSIDE.NO</div>
-    <div>BYGGET MED AI · HOSTET PÅ VERCEL · OPPDATERT 24. APRIL 2026</div>
+    <div>© 2026 IT-Firma.no. Alle rettigheter reservert.</div>
+    <div>Sist oppdatert 24. april 2026</div>
   </div>
 </footer>
 
