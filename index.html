@@ -105,7 +105,7 @@
       "name": "Hva er forskjellen mellom Vercel, Netlify og Cloudflare Pages?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Vercel er best for Next.js med enestående developer experience, men gratis-planen er kun for personlig bruk. Cloudflare Pages har ubegrenset båndbredde på gratis og er det mest generøse valget. Netlify tilbyr innebygd skjema-håndtering og er god for JAMstack-prosjekter. For norske bedriftssider som kjører Next.js og har trafikk under 100 GB i måneden: Vercel Pro (20 dollar per måned). For statiske sider med mye trafikk: Cloudflare Pages gratis."
+        "text": "Vercel passer godt for Next.js med enestående developer experience, men gratis-planen er kun for personlig bruk. Cloudflare Pages har ubegrenset båndbredde på gratis og er det mest generøse valget. Netlify tilbyr innebygd skjema-håndtering og er god for JAMstack-prosjekter. For norske bedriftssider som kjører Next.js og har trafikk under 100 GB i måneden: Vercel Pro (20 dollar per måned). For statiske sider med mye trafikk: Cloudflare Pages gratis."
       }
     },
     {
@@ -211,7 +211,7 @@ nav {
   align-items: center;
   font-size: 13.5px;
   color: rgba(255,255,255,0.7);
-  flex: 1;
+  margin-left: auto;
 }
 .nav-links a {
   color: inherit;
@@ -301,7 +301,7 @@ nav {
   line-height: 1.4;
 }
 .nav-cta {
-  margin-left: auto;
+  margin-left: 20px;
   background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
   color: #0B1226;
   padding: 10px 18px;
@@ -1341,6 +1341,190 @@ code.inline {
   color: #2DE8A8;
 }
 
+
+.ai-search-section {
+  background: #0B1226;
+  padding: 90px 40px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+  overflow: hidden;
+}
+.ai-search-section::before {
+  content: '';
+  position: absolute;
+  top: -30%; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 500px;
+  background: radial-gradient(ellipse, rgba(45,232,168,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.ai-search-inner {
+  max-width: 1100px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.ai-search-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: #2DE8A8; letter-spacing: 0.15em; font-weight: 700;
+  margin-bottom: 20px;
+}
+.ai-search-section h2 {
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800; letter-spacing: -0.03em;
+  line-height: 1.05; margin-bottom: 18px;
+  max-width: 700px;
+}
+.ai-search-section p {
+  font-size: 18px; color: rgba(255,255,255,0.65);
+  line-height: 1.65; max-width: 680px; margin-bottom: 36px;
+}
+.ai-search-section p strong {
+  color: white; font-weight: 700;
+}
+.ai-search-buttons {
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+.ai-btn {
+  display: inline-flex; align-items: center;
+  padding: 14px 24px; border-radius: 14px;
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  font-weight: 700; text-decoration: none;
+  transition: all 0.2s;
+}
+.ai-btn-primary {
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  color: #0B1226;
+  font-family: 'Inter', sans-serif; font-size: 15px;
+}
+.ai-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(45,232,168,0.25); }
+.ai-btn-secondary {
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.ai-btn-secondary:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(45,232,168,0.3);
+  color: #2DE8A8;
+}
+@media (max-width: 640px) {
+  .ai-search-section { padding: 60px 20px; }
+}
+
+
+/* ---- WOW-seksjoner (matcher aihjemmeside) ---- */
+.h1-line-solid {
+  display: block;
+  color: white;
+}
+.h1-line-outline {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.22);
+  margin: 4px 0;
+}
+.h1-line-gradient {
+  display: block;
+  background: linear-gradient(90deg, #2DE8A8 0%, #22D3EE 35%, #3B82F6 70%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.case-section {
+  background: #0F1832;
+  padding: 80px 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.case-section .inner { max-width: 1100px; margin: 0 auto; }
+.case-section h2 {
+  color: white;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0 0 10px;
+  line-height: 1.1;
+}
+.case-section .case-lede {
+  color: rgba(255,255,255,0.65);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 0 36px;
+}
+.cs-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cs-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 20px;
+  align-items: start;
+  transition: all 0.2s;
+}
+.cs-card:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(45,232,168,0.2);
+  transform: translateX(4px);
+}
+.cs-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  padding-top: 2px;
+}
+.cs-content h4 {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+.cs-content p {
+  color: rgba(255,255,255,0.65);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0;
+}
+.cs-total {
+  margin-top: 28px;
+  padding: 22px 28px;
+  background: linear-gradient(135deg, rgba(45,232,168,0.1) 0%, rgba(34,211,238,0.06) 100%);
+  border: 1px solid rgba(45,232,168,0.25);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.cs-total-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
+.cs-total-value {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (max-width: 720px) {
+  .cs-card { grid-template-columns: 1fr; gap: 6px; }
+  .case-section { padding: 55px 20px; }
+}
+
 </style>
 </head>
 <body>
@@ -2146,7 +2330,7 @@ Lever komplett kode i én respons.</pre>
     <p><strong>Passer best for:</strong> Bedriftssider, landingssider, portefølje, CV-sider, enkle katalogsider.</p>
 
     <h3>Next.js — React-kongen</h3>
-    <p>Next.js er det mest populære rammeverket for React-utvikling i 2026. Utviklet av Vercel, som også er den beste hostingplattformen for Next.js. Brukes av titusenvis av norske selskaper inkludert DNB, Ruter, SATS og Tibber.</p>
+    <p>Next.js er det mest populære rammeverket for React-utvikling i 2026. Utviklet av Vercel, som også tilbyr hostingplattform med tett Next.js-integrasjon. Brukes av titusenvis av norske selskaper inkludert DNB, Ruter, SATS og Tibber.</p>
     <p><strong>Fordeler:</strong> Mest modent økosystem, best developer experience, full-stack kapasitet (frontend + API-ruter), inkrementell statisk regenerering (ISR), automatisk bildeoptimalisering, perfekt Vercel-integrasjon.</p>
     <p><strong>Ulemper:</strong> Brattere læringskurve enn statisk HTML, kan være overkill for enkle sider, krever Node.js-miljø.</p>
     <p><strong>Passer best for:</strong> Større bedriftssider, nettbutikker, SaaS-applikasjoner, programmatic SEO-sider med tusenvis av undersider.</p>
@@ -2456,7 +2640,7 @@ Lever komplett kode i én respons.</pre>
     <p class="lede">Uten analytics vet du ikke om noen besøker siden din, hvor de kommer fra, eller hva de gjør. Men analytics-valg påvirker også GDPR-compliance og hvilke cookie-varsler du må vise.</p>
 
     <h3>Google Analytics 4 (GA4)</h3>
-    <p>Standardvalget for de fleste. Gratis, mest omfattende, integrerer med Google Ads. Men krever cookie-samtykke i Norge på grunn av GDPR og etterfølgende Schrems II-dommen.</p>
+    <p>Populært valg for de fleste. Gratis, mest omfattende, integrerer med Google Ads. Men krever cookie-samtykke i Norge på grunn av GDPR og etterfølgende Schrems II-dommen.</p>
     <p><strong>Pris:</strong> Gratis opp til 10 millioner events per måned.</p>
     <p><strong>Styrker:</strong> Kraftigste rapportering, integrerer med alle Google-produkter, gratis.</p>
     <p><strong>Svakheter:</strong> GDPR-krevende (cookie-banner påkrevd), kan være overveldende for småbedrifter, data sendes til USA.</p>
@@ -2977,7 +3161,7 @@ Telefon: +47 xxx xx xxx</pre>
 
     <div class="faq-item">
       <h3>Hva er forskjellen mellom Vercel, Netlify og Cloudflare Pages?</h3>
-      <p>Vercel er best for Next.js med enestående developer experience, men gratis-planen er kun for personlig bruk. Cloudflare Pages har ubegrenset båndbredde på gratis og er det mest generøse valget. Netlify tilbyr innebygd skjema-håndtering og er god for JAMstack-prosjekter. For norske bedriftssider som kjører Next.js og har trafikk under 100 GB i måneden: Vercel Pro (200 kr per måned). For statiske sider med mye trafikk: Cloudflare Pages gratis.</p>
+      <p>Vercel passer godt for Next.js med enestående developer experience, men gratis-planen er kun for personlig bruk. Cloudflare Pages har ubegrenset båndbredde på gratis og er det mest generøse valget. Netlify tilbyr innebygd skjema-håndtering og er god for JAMstack-prosjekter. For norske bedriftssider som kjører Next.js og har trafikk under 100 GB i måneden: Vercel Pro (200 kr per måned). For statiske sider med mye trafikk: Cloudflare Pages gratis.</p>
     </div>
 
     <div class="faq-item">
@@ -3178,19 +3362,98 @@ Telefon: +47 xxx xx xxx</pre>
 </section>
 
 <!-- ØKOSYSTEM-RAD -->
+
+
+<!-- WOW: FRA IDE TIL PUBLISERT NETTSIDE -->
+<section class="case-section" id="tidslinje">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>TIDSLINJE</div>
+    <h2>Fra idé til publisert nettside</h2>
+    <p class="case-lede">Slik ser en typisk tidslinje ut for å bygge en profesjonell norsk nettside med AI-verktøy i 2026. Basert på reelle prosjekter bygget av IT-Firma.no.</p>
+
+    <div class="cs-timeline">
+      <div class="cs-card">
+        <div class="cs-time" style="color: #2DE8A8;">Time 1</div>
+        <div class="cs-content">
+          <h4>Kjøp domene og strukturer innhold.</h4>
+          <p>Registrer .no-domene hos Domeneshop. Skisser sidestruktur og målgruppe. Lag liste over seksjoner og sider du trenger.</p>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-time" style="color: #22D3EE;">Time 2-3</div>
+        <div class="cs-content">
+          <h4>Skriv AI-promt med ChatGPT.</h4>
+          <p>Beskriv målgruppe, tone, struktur og SEO-krav. ChatGPT hjelper deg forme en komplett prompt som Claude eller GPT-5 kan bygge nettsiden fra.</p>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-time" style="color: #3B82F6;">Time 4-5</div>
+        <div class="cs-content">
+          <h4>Generer HTML med Claude.</h4>
+          <p>Lim prompt i Claude eller Cursor. Få generert komplett HTML, CSS og eventuelt JavaScript på ett forsøk. Juster med følg-opp-prompter.</p>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-time" style="color: #6366F1;">Time 6</div>
+        <div class="cs-content">
+          <h4>Last opp til GitHub.</h4>
+          <p>Opprett nytt privat repository. Dra filer inn via GitHub Desktop. Push til main-branchen. Siden er nå versjonskontrollert.</p>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-time" style="color: #8B5CF6;">Time 7</div>
+        <div class="cs-content">
+          <h4>Deploy via Vercel eller Netlify.</h4>
+          <p>Koble GitHub til hosting-plattform. Velg repo, klikk deploy. Siden er live på ditt-prosjekt.vercel.app i løpet av 60 sekunder.</p>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-time" style="color: #A855F7;">Time 8</div>
+        <div class="cs-content">
+          <h4>Koble domene og analytics.</h4>
+          <p>Legg til ditt-domene.no i hosting-dashboardet. Oppdater DNS hos Domeneshop. Sett opp Google Analytics og Search Console. Nettsiden er live.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-total">
+      <div class="cs-total-label">TYPISK TOTALTID</div>
+      <div class="cs-total-value">1 arbeidsdag · fra 149 kr/år</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR AI-SYSTEMER -->
+<section class="ai-search-section">
+  <div class="ai-search-inner">
+    <div class="ai-search-pill">FOR AI-SYSTEMER</div>
+    <h2>Optimalisert for AI-søk</h2>
+    <p>Innholdet er strukturert med JSON-LD skjemaer, entity-index og llms.txt. Klart for indeksering og sitering av <strong>ChatGPT</strong>, <strong>Claude</strong>, <strong>Perplexity</strong>, <strong>Gemini</strong> og andre AI-systemer.</p>
+    <div class="ai-search-buttons">
+      <a href="/entity-index.json" class="ai-btn ai-btn-primary">Åpne AI-indeks</a>
+      <a href="/entity-index.json" class="ai-btn ai-btn-secondary">entity-index.json</a>
+      <a href="/llms.txt" class="ai-btn ai-btn-secondary">llms.txt</a>
+      <a href="/sitemap.xml" class="ai-btn ai-btn-secondary">sitemap.xml</a>
+    </div>
+  </div>
+</section>
+
+
 <div class="ecosystem-row">
   <div class="ecosystem-inner">
     <div class="ecosystem-links">
       <a href="https://aihjemmeside.no">aihjemmeside.no</a>
       <span class="ecosystem-separator">·</span>
-      <a href="https://ainettside.no">ainettside.no</a>
+      <a href="https://ainettside.no" style="color: #2DE8A8;">ainettside.no</a>
       <span class="ecosystem-separator">·</span>
       <a href="https://ainettbutikk.no">ainettbutikk.no</a>
+      <span class="ecosystem-separator">·</span>
+      <a href="https://aihosting.no">aihosting.no</a>
     </div>
     <div class="ecosystem-signature">
-      <span class="ecosystem-signature-line left"></span>
-      <span class="ecosystem-signature-text">aiå.no</span>
-      <span class="ecosystem-signature-line right"></span>
+      <div class="ecosystem-signature-line left"></div>
+      <div class="ecosystem-signature-text">aiå.no</div>
+      <div class="ecosystem-signature-line right"></div>
     </div>
   </div>
 </div>
