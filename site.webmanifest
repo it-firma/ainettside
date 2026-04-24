@@ -1,0 +1,10 @@
+{
+  "name": "ainettside.no",
+  "short_name": "ainettside",
+  "description": "Den ultimate norske kunnskapssiden for AI-nettsider",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1226",
+  "theme_color": "#0B1226",
+  "lang": "nb-NO"
+}

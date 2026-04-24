@@ -1,0 +1,52 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ainettside.no/#organization",
+      "name": "ainettside.no",
+      "url": "https://ainettside.no",
+      "description": "Den ultimate norske kunnskapssiden for å bygge nettsider med AI",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "IT-Firma.no",
+        "url": "https://it-firma.no"
+      },
+      "inLanguage": "nb-NO",
+      "knowsAbout": [
+        "AI-webutvikling",
+        "Claude",
+        "ChatGPT",
+        "Cursor",
+        "Claude Code",
+        "v0 by Vercel",
+        "Lovable",
+        "Bolt.new",
+        "Replit Agent",
+        "Next.js",
+        "Astro",
+        "React",
+        "Vercel",
+        "Netlify",
+        "Cloudflare Pages",
+        "Sanity CMS",
+        "Contentful",
+        "Strapi",
+        "Payload CMS",
+        "SEO",
+        "AEO",
+        "Answer Engine Optimization",
+        "Norsk webutvikling"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ainettside.no/#website",
+      "url": "https://ainettside.no",
+      "name": "ainettside.no",
+      "description": "Komplett kunnskapsside for AI-nettsider",
+      "publisher": { "@id": "https://ainettside.no/#organization" },
+      "inLanguage": "nb-NO"
+    }
+  ]
+}

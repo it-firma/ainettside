@@ -1,0 +1,79 @@
+# ainettside.no
+
+> Den ultimate norske kunnskapssiden for å bygge nettsider med AI. Ren kunnskap, ingen affiliate, ingen markedsføring. Komplett oversikt over AI-verktøy, rammeverk, hosting, CMS, domener, analytics og SEO for norske bedrifter og utviklere i 2026.
+
+## Om ainettside.no
+
+ainettside.no er en uavhengig kunnskapsportal bygget av IT-Firma.no som en del av aiå.no-økosystemet. Siden dekker alt du trenger å vite for å bygge profesjonelle nettsider med kunstig intelligens i 2026. Innholdet er objektivt, oppdatert med 2026-priser og basert på faktisk testing av verktøyene.
+
+## Søsterprosjekter i aiå.no-økosystemet
+
+- aihjemmeside.no — quickstart-guide for å lage din første hjemmeside med AI på 47 minutter
+- ainettside.no — komplett kunnskapsside (du leser den nå)
+- ainettbutikk.no — alt om AI-bygde nettbutikker (kommer)
+- aihosting.no — dypdykk i hosting for AI-bygde nettsider (kommer)
+
+## Hovedtemaer
+
+### AI-verktøy for nettsidebygging
+- Claude (Anthropic) — chat-basert AI, best for enkeltfil HTML og forklarende kode
+- ChatGPT (OpenAI) — prompt engineering, strategi og struktur
+- Cursor — AI-native IDE bygget på VS Code, for erfarne utviklere
+- Claude Code — terminal-basert agent fra Anthropic, kjører på datamaskinen din
+- v0 (Vercel) — generer React- og Next.js-komponenter med shadcn/ui
+- Lovable — full-stack AI-bygger for MVPer, integrert med Supabase
+- Bolt.new (StackBlitz) — browserbasert, null lokal installering
+- Replit Agent — skybasert AI som både koder og deployer
+- Windsurf (Codeium) — Cursor-alternativ med fokus på flow
+- GitHub Copilot — AI-assistent integrert i VS Code og andre IDE-er
+
+### Rammeverk
+- Statisk HTML — enklest, raskest, ingen avhengigheter
+- Next.js — mest populær React-rammeverk, optimalisert for Vercel
+- Astro — innhold-fokusert, null JavaScript som standard
+- SvelteKit, Nuxt, Remix — alternativer for spesifikke behov
+
+### Hosting
+- Vercel — best for Next.js, men gratis-plan er kun for personlig bruk
+- Netlify — JAMstack-pioner, god for skjemaer og identitet
+- Cloudflare Pages — ubegrenset båndbredde på gratis-plan
+- Domeneshop — norsk hosting direkte hos domeneleverandør
+- PRO ISP, Webhuset, One.com — andre norske hosting-leverandører
+
+### CMS (Content Management System)
+- Sanity — fleksibelt, sanntids-samarbeid, sjenerøs gratis-plan
+- Contentful — enterprise-standard, dyrere men moden
+- Strapi — selv-hostet, åpen kildekode
+- Payload CMS — TypeScript-native, Next.js-integrert
+- Ingen CMS — statisk innhold i kode (enklest for små sider)
+
+### Domeneregistrarer (Norge)
+- Domeneshop — 99 kr første år for .no
+- Domene.no, Uniweb, One.com, PRO ISP, Webhuset, Loopia — alternativer
+
+### Analytics
+- Google Analytics 4 — gratis, mest omfattende, men GDPR-krever cookie-samtykke
+- Plausible — norsk-vennlig, GDPR-kompatibel uten samtykke, betalt
+- Fathom, Simple Analytics, Umami — andre privatvennlige alternativer
+
+### Skjemaer
+- Formspree, Tally, Typeform, Fillout — hostede skjema-tjenester
+- Native med Vercel Functions eller Cloudflare Workers + Resend
+
+### SEO og AEO (AI Engine Optimization)
+- Struktur med JSON-LD schemas (HowTo, FAQ, Organization, BreadcrumbList)
+- llms.txt, entity-index.json for AI-søkemotorer
+- Programmatic SEO for tusenvis av sider
+- Core Web Vitals-optimalisering
+
+## Teknisk oppsett
+
+Siden er bygget som en statisk HTML-fil med inline CSS og minimal JavaScript. Deployes via Vercel med GitHub som kildekontroll. Mørk navy palett (#0B1226) med grønn-til-lilla gradient-aksenter. JetBrains Mono for kode og tall, Inter for brødtekst.
+
+## Kontakt
+
+Eier: IT-Firma.no
+E-post: hei@ainettside.no
+Del av: aiå.no-økosystemet
+
+Sist oppdatert: 24. april 2026
